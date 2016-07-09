@@ -1,0 +1,25 @@
+#!/usr/bin/env ansible-playbook
+
+---
+- hosts: all
+  roles:
+    - chusiang.win_vim
+
+  tasks:
+    - name: copy check vim version file
+      win_template:
+        src: 'templates/check_vim_version.bat.j2'
+        dest: '{{ tmp_path }}\check_vim_version.bat'
+      when: ansible_os_family == "Windows"
+
+    - name: check vim version
+      raw: '{{ tmp_path }}\check_vim_version.bat'
+      register: vim_version
+      when: ansible_os_family == "Windows"
+
+    - name: print vim version
+      debug:
+        msg: "{{ vim_version }}"
+      when: ansible_os_family == "Windows"
+
+# vim:ft=ansible :

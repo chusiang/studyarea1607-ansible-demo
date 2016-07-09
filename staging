@@ -1,0 +1,5 @@
+[windows]
+win10.local ansible_host=127.0.0.1 ansible_user=IEUser ansible_password=Passw0rd! ansible_port=55986
+#2012r2.local ansible_host=127.0.0.1 ansible_port=55986 ansible_user=vagrant ansible_password=vagrant
+
+# vim: ft=ansible :

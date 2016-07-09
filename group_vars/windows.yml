@@ -1,0 +1,12 @@
+---
+
+# windows support
+#################
+
+ansible_port: 55986
+ansible_connection: winrm
+
+# The following is necessary for Python 2.7.9+ when using default WinRM self-signed certificates:
+ansible_winrm_server_cert_validation: ignore
+
+# vim: ft=ansible :
